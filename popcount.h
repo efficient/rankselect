@@ -125,7 +125,7 @@ inline int select64_broadword(uint64 x, int k) {
     
     // Phase 2: compare each byte sum with the residual
     const uint64 residual_step_8 = residual * ONES_STEP_8;
-    const int place = ( LEQ_STEP_8( byte_sums, residual_step_8 ) * ONES_STEP_8 >> 53 ) & ~0x7;
+    const int place = ( LEQ_STEP_8( byte_sums, residual_step_8 ) * ONES_STEP_8 >> 53 );
     
     // Phase 3: Locate the relevant byte and make 8 copies with incremental masks
     const int byte_rank = residual - ( ( ( byte_sums << 8 ) >> place ) & 0xFF );
